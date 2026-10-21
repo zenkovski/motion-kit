@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>smoke test</title></head>
+<body>
+<script type="module">
+// Pipeline check only (not a design reference): a square that springs in and rotates, one line of text with Czech diacritics.
+import { E, spring, fonts, stage, text } from "/lib/mg.js";
+const ctx = stage((ctx, t) => {
+  ctx.fillStyle = "#111"; ctx.fillRect(0, 0, 1080, 1920);
+  const k = spring(t, 0.2, 2, 6);
+  ctx.save(); ctx.translate(540, 820); ctx.rotate(t); ctx.scale(k, k); ctx.fillStyle = "#3D7BFF"; ctx.fillRect(-150, -150, 300, 300); ctx.restore();
+  text(ctx, "Příliš žluťoučký kůň", 540, 1200, { size: 72, weight: 700, family: "Inter", color: "#fff" });
+}, { duration: 3 });
+await fonts([["Inter", "Inter.ttf", { weight: "100 900" }]]);
+window.__go();
+</script>
+</body></html>

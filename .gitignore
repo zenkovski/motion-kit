@@ -1,0 +1,11 @@
+node_modules/
+.venv/
+.chrome/
+.mgsrc/
+lib/audio/
+.env.motion
+films/*/
+!films/.gitkeep
+tests/*/out/
+**/__pycache__/
+ffmpeg2pass-*
